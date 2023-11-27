@@ -30,7 +30,7 @@ const Contacts = () => {
     setLoading(true)
     setCurrentAnimation(animationType.HIT)
 
-    new Promise((resolve, reject) => {
+    new Promise((resolve) => {
       setTimeout(() => {
         resolve('done')
       }, 2000)
