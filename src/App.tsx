@@ -1,4 +1,4 @@
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import { Route, HashRouter, Routes } from 'react-router-dom'
 import Navbar from '@components/navbar'
 import routes from '@navigator/routes.json'
 import Home from '@pages/home'
@@ -11,19 +11,19 @@ function App() {
 
   return (
     <div className='bg-slate-300/20'>
-      <Router>
+      <HashRouter>
         <Navbar />
         <main className='h-full'>
           <Routes>
             {Object.entries(routes).map(([key, route]) => {
               let Component = Elements[key as keyof typeof Elements]
                 return (
-                  <Route key={key} path={route} element={Component} />
+                  <Route key={key} path={`/${route}`} element={Component} />
                 )
             })}
           </Routes>
         </main>
-      </Router>
+      </HashRouter>
     </div>
   )
 }
